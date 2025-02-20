@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URI;
 
 public class ghucli{
     public static void main(String[] args) {
@@ -15,7 +16,8 @@ public class ghucli{
         String ghApi = "https://api.github.com/users/" + user + "/events/public";
 
         try { // Crear la URL y la conexión HTTP
-            URL url = new URL(ghApi); // Transforma el string ghApi en un objeto tipo URL para poder realizar una conexion HTTP
+            URI uri = new URI(ghApi); // Transforma el string ghApi en un objeto tipo URI 
+            URL url = uri.toURL(); // Transforma objeto URI en un objeto tipo URL para poder realizar una conexion HTTP
             HttpURLConnection http = (HttpURLConnection) url.openConnection(); // Inicia una coneccion HTTP con la API
             
             http.setRequestMethod("GET"); // El comando "GET" sirve para solicitar datos a traves de la conexion HTTP
