@@ -28,13 +28,13 @@ public class ghucli{
             }
 
             // Leer la respuesta de la API
-            BufferedReader inn = new BufferedReader(new InputStreamReader(http.getInputStream())); // Permite obtener los datos del flujo de entrada de la conexion http para leer, linea por linea, los datos recibidos mediante la misma
+            BufferedReader in = new BufferedReader(new InputStreamReader(http.getInputStream())); // Permite obtener los datos del flujo de entrada de la conexion http para leer, linea por linea, los datos recibidos mediante la misma
             String gotcha; // Copiara linea por linea lo que recibamos de la API 
             StringBuffer response = new StringBuffer(); // Almacenara todas las lineas de respuestas
-            while ((gotcha = inn.readLine()) != null) { // Copia una linea de respuesta en la cadena de texto
+            while ((gotcha = in.readLine()) != null) { // Copia una linea de respuesta en la cadena de texto
                 response.append(gotcha); // Luego es almacenada
             } // Termina cuando la linea recibida sea nula
-            inn.close(); // Cierra el flujo de entrada
+            in.close(); // Cierra el flujo de entrada
 
             // Mostrar la actividad
             String activity = response.toString(); // Convierte la lista de lineas de textos almacenadas en un solo texto
