@@ -13,7 +13,7 @@ public class ghucli{
         }
 
         String user = args[0];
-        String ghApi = "https://api.github.com/users/" + user + "/events/public";
+        String ghApi = "https://api.github.com/users/" + user + "/events";
 
         try { // Crear la URL y la conexión HTTP
             URI uri = new URI(ghApi); // Transforma el string ghApi en un objeto tipo URI 
